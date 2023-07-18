@@ -76,6 +76,12 @@
     font-size: 14px;
     min-height: 30px;
 }
+#gizmos {
+    -unity-font-style: bold;
+    font-size: 14px;
+    min-height: 30px;
+    color: rgb(0, 0, 0);
+}
 
 #description {
     font-size: 12px;

@@ -293,9 +293,9 @@ namespace TheKiwiCoder {
         }
 
         void OnToolbarNewAsset() {
-            BehaviourTree tree = EditorUtility.CreateNewTree("New Behaviour Tree", settings.newTreePath);
-            if (tree) {
-                SelectNewTree(tree);
+            var newTree = EditorUtility.CreateNewTree("New Behaviour Tree", settings.newTreePath);
+            if (newTree) {
+                SelectNewTree(newTree);
             }
         }
 

@@ -51,6 +51,7 @@ namespace TheKiwiCoder {
             CreateOutputPorts();
             SetupClasses();
             SetupDataBinding();
+            SetUpGizmos();
 
             this.AddManipulator(new DoubleClickNode());
         }
@@ -63,6 +64,20 @@ namespace TheKiwiCoder {
                 if (descriptionProp != null) {
                     Label descriptionLabel = this.Q<Label>("description");
                     descriptionLabel.BindProperty(descriptionProp);
+                }
+            }
+        }
+        private void SetUpGizmos()
+        {
+            var serializer = BehaviourTreeEditorWindow.Instance.serializer;
+            var nodeProp = serializer.FindNode(serializer.Nodes, node);
+            if (nodeProp != null)
+            {
+                var gizmosProp = nodeProp.FindPropertyRelative("drawGizmos");
+                if (gizmosProp != null)
+                {
+                    var descriptionLabel = this.Q<Label>("gizmos");
+                    descriptionLabel.visible = gizmosProp.boolValue;
                 }
             }
         }
@@ -164,6 +179,11 @@ namespace TheKiwiCoder {
                         break;
                 }
             }
+        }
+        public void UpdateGizmos()
+        {
+            Label descriptionLabel = this.Q<Label>("gizmos");
+            descriptionLabel.visible = node.drawGizmos;
         }
     }
 }

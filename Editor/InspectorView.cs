@@ -35,6 +35,7 @@ namespace TheKiwiCoder {
             field.BindProperty(nodeProperty);
 
             Add(field);
+            field.RegisterCallback<ChangeEvent<bool>>(_ => nodeView.UpdateGizmos());
         }
     }
 }
