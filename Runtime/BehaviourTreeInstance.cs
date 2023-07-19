@@ -52,7 +52,7 @@ namespace TheKiwiCoder {
             }
         }
 
-        Context CreateBehaviourTreeContext() {
+        protected virtual Context  CreateBehaviourTreeContext() {
             return Context.CreateFromGameObject(gameObject);
         }
 
